@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibong Apparel Design Studio</title>
+    <style>
+        :root {
+            --sage: #A5BF99;
+            --green: #347338;
+            --deep-green: #134023;
+            --ink: #11261A;
+            --black-green: #070D0B;
+            --cream: #F4F0E6;
+            --paper: #FFFDF7;
+            --sunset: #FEAA47;
+            --canyon: #B4490D;
+            --lake: #227376;
+            --deep-lake: #034B52;
+            --pine: #083A08;
+            --shadow: rgba(7, 13, 11, 0.28);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 14% 12%, rgba(254, 170, 71, 0.22), transparent 30%),
+                radial-gradient(circle at 84% 8%, rgba(34, 115, 118, 0.35), transparent 32%),
+                linear-gradient(rgba(7, 13, 11, 0.72), rgba(3, 75, 82, 0.82)),
+                url("../assets/img/leaves.png") center / cover;
+            padding: 1.25rem;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .app-shell {
+            width: min(1180px, 100%);
+            margin: 0 auto;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            color: white;
+        }
+
+        .brand {
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            font-weight: 800;
+            font-size: clamp(1rem, 3vw, 1.35rem);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-links a {
+            padding: 0.65rem 0.9rem;
+            border: 1px solid rgba(254, 170, 71, 0.5);
+            border-radius: 999px;
+            text-decoration: none;
+            color: white;
+            background: rgba(3, 75, 82, 0.7);
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 1.5rem;
+            align-items: stretch;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-card,
+        .panel,
+        .preview-card,
+        .result-card {
+            border: 1px solid rgba(165, 191, 153, 0.45);
+            background: rgba(255, 253, 247, 0.95);
+            box-shadow: 0 14px 34px rgba(7, 13, 11, 0.2);
+            border-radius: 26px;
+            contain: layout paint;
+        }
+
+        .hero-card {
+            padding: clamp(2rem, 4vw, 3.5rem);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card::after {
+            content: "";
+            position: absolute;
+            right: -60px;
+            bottom: -80px;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(254, 170, 71, 0.42), rgba(34, 115, 118, 0.28));
+        }
+
+        .eyebrow {
+            color: var(--canyon);
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            font-size: 0.78rem;
+            margin-bottom: 0.9rem;
+        }
+
+        h1 {
+            max-width: 760px;
+            color: var(--black-green);
+            font-size: clamp(2.3rem, 6vw, 4.8rem);
+            line-height: 0.95;
+            margin-bottom: 1rem;
+        }
+
+        .hero-card p {
+            max-width: 680px;
+            color: #435244;
+            font-size: 1.08rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mission-card {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+            background:
+                linear-gradient(135deg, rgba(180, 73, 13, 0.94), rgba(3, 75, 82, 0.95), rgba(8, 58, 8, 0.96)),
+                repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.08) 0 8px, transparent 8px 18px);
+            border-radius: 26px;
+            box-shadow: 0 14px 34px rgba(7, 13, 11, 0.2);
+            contain: layout paint;
+        }
+
+        .mission-card h2 {
+            font-size: 1.65rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .mission-card p {
+            color: rgba(255, 255, 255, 0.84);
+            line-height: 1.7;
+        }
+
+        .studio-grid {
+            display: grid;
+            grid-template-columns: minmax(280px, 430px) 1fr;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .panel {
+            padding: 1.5rem;
+        }
+
+        .panel h2,
+        .preview-card h2,
+        .result-card h2 {
+            color: var(--black-green);
+            font-size: 1.35rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .panel .helper,
+        .preview-card .helper,
+        .result-card .helper {
+            color: #5f6f61;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+
+        .field-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        label {
+            display: block;
+            color: var(--deep-green);
+            font-weight: 800;
+            margin-bottom: 0.45rem;
+            font-size: 0.9rem;
+        }
+
+        select,
+        input[type="text"] {
+            width: 100%;
+            border: 2px solid rgba(52, 115, 56, 0.2);
+            border-radius: 14px;
+            padding: 0.88rem 0.95rem;
+            color: var(--ink);
+            background: #fff;
+            font: inherit;
+            outline: none;
+        }
+
+        select:focus,
+        input[type="text"]:focus {
+            border-color: var(--lake);
+            box-shadow: 0 0 0 4px rgba(34, 115, 118, 0.22);
+        }
+
+        .button-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+        }
+
+        button,
+        .button-link {
+            border: 0;
+            border-radius: 999px;
+            padding: 0.95rem 1rem;
+            cursor: pointer;
+            font-weight: 900;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            text-align: center;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        button:hover,
+        .button-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .primary-btn {
+            color: white;
+            background: linear-gradient(135deg, var(--canyon), var(--lake));
+            box-shadow: 0 10px 24px rgba(180, 73, 13, 0.28);
+        }
+
+        .secondary-btn {
+            color: var(--black-green);
+            background: var(--sunset);
+        }
+
+        .ghost-btn {
+            color: var(--deep-lake);
+            border: 2px solid rgba(34, 115, 118, 0.35);
+            background: transparent;
+        }
+
+        .preview-stack {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .preview-card,
+        .result-card {
+            padding: 1.5rem;
+        }
+
+        .preview-stage {
+            min-height: 390px;
+            display: grid;
+            place-items: center;
+            border-radius: 22px;
+            background:
+                radial-gradient(circle at 18% 20%, rgba(254, 170, 71, 0.28), transparent 28%),
+                radial-gradient(circle at 82% 18%, rgba(34, 115, 118, 0.22), transparent 32%),
+                linear-gradient(135deg, #f8f1df, #d9e6df);
+            border: 1px solid rgba(34, 115, 118, 0.2);
+            margin-top: 1rem;
+            padding: 2rem 1rem;
+            overflow: hidden;
+        }
+
+        .product-preview {
+            --product-color: #F4F0E6;
+            position: relative;
+            width: min(320px, 80vw);
+            height: 330px;
+            display: grid;
+            place-items: center;
+        }
+
+        .garment {
+            position: relative;
+            width: 220px;
+            height: 250px;
+            background: var(--product-color);
+            border: 4px solid rgba(7, 13, 11, 0.18);
+            box-shadow: 0 12px 22px rgba(7, 13, 11, 0.16);
+            transition: background 0.2s ease;
+        }
+
+        .product-preview.shirt .garment {
+            border-radius: 34px 34px 26px 26px;
+            clip-path: polygon(26% 0, 74% 0, 100% 21%, 88% 42%, 79% 33%, 79% 100%, 21% 100%, 21% 33%, 12% 42%, 0 21%);
+        }
+
+        .product-preview.hoodie .garment {
+            height: 270px;
+            border-radius: 50px 50px 24px 24px;
+            clip-path: polygon(21% 8%, 34% 0, 66% 0, 79% 8%, 100% 25%, 87% 44%, 79% 36%, 79% 100%, 21% 100%, 21% 36%, 13% 44%, 0 25%);
+        }
+
+        .product-preview.hoodie .garment::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            width: 92px;
+            height: 58px;
+            transform: translateX(-50%);
+            border: 4px solid rgba(7, 13, 11, 0.16);
+            border-bottom: 0;
+            border-radius: 50px 50px 18px 18px;
+        }
+
+        .product-preview.hat .garment {
+            width: 240px;
+            height: 145px;
+            border-radius: 120px 120px 28px 28px;
+            clip-path: none;
+        }
+
+        .product-preview.hat .garment::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -24px;
+            width: 190px;
+            height: 34px;
+            transform: translateX(-50%);
+            background: inherit;
+            border: 4px solid rgba(7, 13, 11, 0.18);
+            border-top: 0;
+            border-radius: 0 0 90px 90px;
+        }
+
+        .product-preview.sticker .garment {
+            width: 240px;
+            height: 240px;
+            border-radius: 48px;
+            clip-path: none;
+            background: #fff;
+        }
+
+        .product-preview.sticker .garment::before {
+            content: "";
+            position: absolute;
+            inset: 14px;
+            border: 3px dashed rgba(52, 115, 56, 0.45);
+            border-radius: 36px;
+        }
+
+        .design-mark {
+            position: absolute;
+            z-index: 2;
+            width: 118px;
+            min-height: 82px;
+            display: grid;
+            place-items: center;
+            padding: 0.9rem;
+            border-radius: 22px;
+            color: var(--design-color, #134023);
+            background: rgba(255, 255, 255, 0.34);
+            border: 2px solid currentColor;
+            text-align: center;
+            font-weight: 900;
+            line-height: 1.1;
+            box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.12);
+        }
+
+        .design-mark .tagalog {
+            display: block;
+            font-size: 1.05rem;
+        }
+
+        .design-mark .translation {
+            display: block;
+            margin-top: 0.35rem;
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .placement-left-chest .design-mark {
+            width: 82px;
+            min-height: 58px;
+            top: 102px;
+            left: 94px;
+            font-size: 0.78rem;
+        }
+
+        .placement-center .design-mark {
+            top: 112px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .placement-back .design-mark {
+            top: 90px;
+            left: 50%;
+            width: 145px;
+            min-height: 105px;
+            transform: translateX(-50%);
+        }
+
+        .placement-sleeve .design-mark {
+            width: 70px;
+            min-height: 56px;
+            top: 88px;
+            right: 32px;
+            font-size: 0.7rem;
+            transform: rotate(8deg);
+        }
+
+        .product-preview.hat .design-mark {
+            top: 120px;
+            left: 50%;
+            width: 130px;
+            min-height: 54px;
+            transform: translateX(-50%);
+        }
+
+        .product-preview.sticker .design-mark {
+            top: 82px;
+            left: 50%;
+            width: 150px;
+            min-height: 104px;
+            transform: translateX(-50%);
+            background: rgba(165, 191, 153, 0.16);
+        }
+
+        .palette-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-top: 1rem;
+        }
+
+        .swatch {
+            flex: 1 1 95px;
+            min-width: 95px;
+            overflow: hidden;
+            border-radius: 15px;
+            border: 1px solid rgba(7, 13, 11, 0.12);
+            background: #fff;
+        }
+
+        .swatch-color {
+            height: 52px;
+        }
+
+        .swatch span {
+            display: block;
+            padding: 0.55rem;
+            color: #435244;
+            font-family: "Courier New", monospace;
+            font-size: 0.78rem;
+            text-align: center;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .summary-item {
+            padding: 0.85rem;
+            border-radius: 16px;
+            background: #f2f6ed;
+        }
+
+        .summary-item strong {
+            display: block;
+            color: var(--lake);
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
+        }
+
+        .phrase-card {
+            margin-top: 1rem;
+            padding: 1.1rem;
+            border-left: 6px solid var(--canyon);
+            border-radius: 16px;
+            background: #fff;
+        }
+
+        .phrase-card h3 {
+            color: var(--deep-green);
+            font-size: 1.55rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .phrase-card p {
+            color: #4f5f50;
+            line-height: 1.65;
+        }
+
+        @media (max-width: 900px) {
+            .hero,
+            .studio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .topbar {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 560px) {
+            body {
+                padding: 0.75rem;
+            }
+
+            .hero-card,
+            .mission-card,
+            .panel,
+            .preview-card,
+            .result-card {
+                border-radius: 18px;
+                padding: 1.15rem;
+            }
+
+            .button-row,
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .preview-stage {
+                min-height: 320px;
+            }
+
+            .product-preview {
+                transform: scale(0.86);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="app-shell">
+        <div class="topbar">
+            <div class="brand">Ibong Apparel</div>
+            <nav class="nav-links" aria-label="App navigation">
+                <a href="../html/index_ibang.html">Main Site</a>
+                <a href="../index.html">Scratch Page</a>
+                <a href="../html/resume.html">Resume</a>
+            </nav>
+        </div>
+
+        <section class="hero" aria-labelledby="studio-title">
+            <div class="hero-card">
+                <p class="eyebrow">Custom Design Studio</p>
+                <h1 id="studio-title">Build an Ibong-inspired apparel concept.</h1>
+                <p>Choose a product, size, colorway, placement, and Tagalog phrase. Then generate a design idea inspired by family, nature, Utah, the Philippines, and the portfolio pieces across the main site.</p>
+            </div>
+            <aside class="mission-card">
+                <h2>From meaning to material</h2>
+                <p>This app helps turn a word or phrase into a wearable concept: a hoodie, shirt, hat, or sticker with colors and symbolism that match the Ibong Apparel identity.</p>
+            </aside>
+        </section>
+
+        <section class="studio-grid" aria-label="Design generator">
+            <form class="panel" id="designForm">
+                <h2>Customize Your Concept</h2>
+                <p class="helper">Pick the details yourself, or use Surprise Me for an instant combination.</p>
+
+                <div class="field-grid">
+                    <div>
+                        <label for="product">Product</label>
+                        <select id="product">
+                            <option value="shirt">T-shirt</option>
+                            <option value="hoodie">Hoodie</option>
+                            <option value="hat">Hat</option>
+                            <option value="sticker">Sticker</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="size">Size</label>
+                        <select id="size">
+                            <option>XS</option>
+                            <option>S</option>
+                            <option selected>M</option>
+                            <option>L</option>
+                            <option>XL</option>
+                            <option>2XL</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="baseColor">Product Color</label>
+                        <select id="baseColor">
+                            <option value="#F4F0E6">Cream</option>
+                            <option value="#FEAA47">Sunset Orange</option>
+                            <option value="#B4490D">Canyon Rust</option>
+                            <option value="#227376">Lake Teal</option>
+                            <option value="#034B52">Deep Lake</option>
+                            <option value="#083A08">Pine Green</option>
+                            <option value="#A5BF99">Sage</option>
+                            <option value="#347338">Fern Green</option>
+                            <option value="#134023">Deep Forest</option>
+                            <option value="#11261A">Ink Green</option>
+                            <option value="#070D0B">Almost Black</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="inkColor">Design / Embroidery Color</label>
+                        <select id="inkColor">
+                            <option value="#134023">Deep Forest</option>
+                            <option value="#FEAA47">Sunset Orange</option>
+                            <option value="#B4490D">Canyon Rust</option>
+                            <option value="#227376">Lake Teal</option>
+                            <option value="#034B52">Deep Lake</option>
+                            <option value="#083A08">Pine Green</option>
+                            <option value="#A5BF99">Sage</option>
+                            <option value="#F4F0E6">Cream</option>
+                            <option value="#FFFFFF">White</option>
+                            <option value="#070D0B">Almost Black</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="placement">Placement</label>
+                        <select id="placement">
+                            <option value="placement-left-chest">Left Chest</option>
+                            <option value="placement-center" selected>Centered Front</option>
+                            <option value="placement-back">Back Graphic</option>
+                            <option value="placement-sleeve">Sleeve Detail</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="theme">Tagalog Theme</label>
+                        <select id="theme">
+                            <option value="family">Family</option>
+                            <option value="home">Home</option>
+                            <option value="strength">Strength</option>
+                            <option value="nature">Nature</option>
+                            <option value="service">Giving Back</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="artStyle">Artwork Style</label>
+                        <select id="artStyle">
+                            <option>Hand-drawn line art</option>
+                            <option>Minimal embroidery</option>
+                            <option>Nature frame</option>
+                            <option>Bold back graphic</option>
+                            <option>Sticker badge</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="customText">Optional Custom Word</label>
+                        <input id="customText" type="text" maxlength="24" placeholder="Example: Pamilya">
+                    </div>
+                </div>
+
+                <div class="button-row">
+                    <button class="primary-btn" type="button" id="generateBtn">Generate Concept</button>
+                    <button class="secondary-btn" type="button" id="surpriseBtn">Surprise Me</button>
+                    <button class="ghost-btn" type="button" id="resetBtn">Reset</button>
+                    <a class="button-link ghost-btn" href="../html/index_ibang.html#portfolio">See Portfolio</a>
+                </div>
+            </form>
+
+            <div class="preview-stack">
+                <section class="preview-card" aria-live="polite">
+                    <h2>Live Preview</h2>
+                    <p class="helper">A simple mockup updates as you choose product type, color, placement, and phrase.</p>
+                    <div class="preview-stage">
+                        <div class="product-preview shirt placement-center" id="productPreview">
+                            <div class="garment"></div>
+                            <div class="design-mark" id="designMark">
+                                <span class="tagalog">Tahanan</span>
+                                <span class="translation">Home</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="result-card">
+                    <h2>Your Design Direction</h2>
+                    <p class="helper">Generate a full concept note with Tagalog meaning, product details, and a color palette.</p>
+                    <div id="result">
+                        <div class="phrase-card">
+                            <h3>Tahanan</h3>
+                            <p><strong>Meaning:</strong> Home. A warm starting point for a design about family, belonging, and the light of the home.</p>
+                        </div>
+                        <div class="summary-grid" id="summary"></div>
+                        <div class="palette-strip" id="palette"></div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const phrases = [
+            {
+                theme: "family",
+                word: "Ate",
+                meaning: "Older sister",
+                concept: "A gentle design inspired by care, wisdom, and the calm confidence of an older sister."
+            },
+            {
+                theme: "family",
+                word: "Kuya",
+                meaning: "Older brother",
+                concept: "A protective design built around guidance, loyalty, and looking out for others."
+            },
+            {
+                theme: "family",
+                word: "Mamang",
+                meaning: "Mother",
+                concept: "A warm family design connected to nurturing, sacrifice, and the light inside the home."
+            },
+            {
+                theme: "family",
+                word: "Papang",
+                meaning: "Pillar or support",
+                concept: "A strong design about steady support, responsibility, and holding the family together."
+            },
+            {
+                theme: "home",
+                word: "Ang Ilaw ng Tahanan",
+                meaning: "The light of the home",
+                concept: "A home-centered phrase that fits a soft embroidered design with leaves, light, and family symbolism."
+            },
+            {
+                theme: "home",
+                word: "Tahanan",
+                meaning: "Home",
+                concept: "A grounded design about belonging, comfort, and the people who make a place feel sacred."
+            },
+            {
+                theme: "strength",
+                word: "Hindi Makasarili",
+                meaning: "Not self-centered",
+                concept: "A selfless design made for someone who supports others quietly and consistently."
+            },
+            {
+                theme: "strength",
+                word: "Lakas",
+                meaning: "Strength",
+                concept: "A bold design with mountain-inspired structure and strong contrast stitching."
+            },
+            {
+                theme: "nature",
+                word: "Maamong Kordero",
+                meaning: "Gentle lamb",
+                concept: "A peaceful design inspired by calm confidence, soft lines, and natural balance."
+            },
+            {
+                theme: "nature",
+                word: "Kalikasan",
+                meaning: "Nature",
+                concept: "A leaf-framed design that connects Utah landscapes with tropical Philippine influence."
+            },
+            {
+                theme: "service",
+                word: "Malasakit",
+                meaning: "Compassion or sincere care",
+                concept: "A purpose-driven design centered on giving back and caring for communities."
+            },
+            {
+                theme: "service",
+                word: "Pag-asa",
+                meaning: "Hope",
+                concept: "A clean design about opportunity, brighter futures, and support across the globe."
+            }
+        ];
+
+        const palettes = [
+            {
+                name: "Mountain Lake",
+                colors: ["#FEAA47", "#B4490D", "#227376", "#034B52", "#083A08"]
+            },
+            {
+                name: "Alpine Sunset",
+                colors: ["#FEAA47", "#F4F0E6", "#227376", "#034B52", "#11261A"]
+            },
+            {
+                name: "Canyon Reflection",
+                colors: ["#B4490D", "#FEAA47", "#227376", "#034B52", "#070D0B"]
+            },
+            {
+                name: "Ibong Forest",
+                colors: ["#A5BF99", "#347338", "#134023", "#11261A", "#070D0B"]
+            },
+            {
+                name: "Moss and Cream",
+                colors: ["#F4F0E6", "#DCE6D1", "#A5BF99", "#347338", "#11261A"]
+            },
+            {
+                name: "Mountain Shade",
+                colors: ["#ECE7DA", "#A5BF99", "#6F8F66", "#134023", "#070D0B"]
+            },
+            {
+                name: "Tropical Night",
+                colors: ["#FFFFFF", "#BFD8AF", "#347338", "#134023", "#070D0B"]
+            },
+            {
+                name: "Light of Home",
+                colors: ["#FFFDF7", "#F1D9A5", "#A5BF99", "#347338", "#11261A"]
+            }
+        ];
+
+        const form = {
+            product: document.getElementById("product"),
+            size: document.getElementById("size"),
+            baseColor: document.getElementById("baseColor"),
+            inkColor: document.getElementById("inkColor"),
+            placement: document.getElementById("placement"),
+            theme: document.getElementById("theme"),
+            artStyle: document.getElementById("artStyle"),
+            customText: document.getElementById("customText")
+        };
+
+        const productPreview = document.getElementById("productPreview");
+        const designMark = document.getElementById("designMark");
+        const summary = document.getElementById("summary");
+        const palette = document.getElementById("palette");
+        const result = document.getElementById("result");
+
+        let activePhrase = phrases.find((phrase) => phrase.word === "Tahanan");
+        let activePalette = palettes[0];
+        let customTextTimer;
+
+        function getRandom(items) {
+            return items[Math.floor(Math.random() * items.length)];
+        }
+
+        function escapeHTML(value) {
+            return String(value).replace(/[&<>"']/g, (character) => ({
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                "\"": "&quot;",
+                "'": "&#39;"
+            })[character]);
+        }
+
+        function getPhrase() {
+            const customWord = form.customText.value.trim();
+            if (customWord) {
+                return {
+                    theme: form.theme.value,
+                    word: customWord,
+                    meaning: "Custom word",
+                    concept: "A custom Ibong concept built around your own word and the meaning you bring to it."
+                };
+            }
+
+            const matches = phrases.filter((phrase) => phrase.theme === form.theme.value);
+            return getRandom(matches.length ? matches : phrases);
+        }
+
+        function updateSizes() {
+            const current = form.size.value;
+            const sizesByProduct = {
+                shirt: ["XS", "S", "M", "L", "XL", "2XL"],
+                hoodie: ["S", "M", "L", "XL", "2XL"],
+                hat: ["One Size", "Youth", "Adult"],
+                sticker: ["2 inch", "3 inch", "4 inch", "Sticker Pack"]
+            };
+            const sizes = sizesByProduct[form.product.value];
+
+            form.size.innerHTML = sizes.map((size) => {
+                const selected = size === current || (!sizes.includes(current) && size === sizes[0]);
+                return `<option${selected ? " selected" : ""}>${size}</option>`;
+            }).join("");
+        }
+
+        function updatePreview() {
+            productPreview.className = `product-preview ${form.product.value} ${form.placement.value}`;
+            productPreview.style.setProperty("--product-color", form.baseColor.value);
+            productPreview.style.setProperty("--design-color", form.inkColor.value);
+            designMark.querySelector(".tagalog").textContent = activePhrase.word;
+            designMark.querySelector(".translation").textContent = activePhrase.meaning;
+        }
+
+        function renderSummary() {
+            const items = [
+                ["Product", form.product.options[form.product.selectedIndex].text],
+                ["Size", form.size.value],
+                ["Placement", form.placement.options[form.placement.selectedIndex].text],
+                ["Artwork", form.artStyle.value],
+                ["Colorway", activePalette.name],
+                ["Theme", form.theme.options[form.theme.selectedIndex].text]
+            ];
+
+            summary.innerHTML = items.map(([label, value]) => `
+                <div class="summary-item">
+                    <strong>${escapeHTML(label)}</strong>
+                    <span>${escapeHTML(value)}</span>
+                </div>
+            `).join("");
+        }
+
+        function renderPalette() {
+            palette.innerHTML = activePalette.colors.map((color) => `
+                <div class="swatch">
+                    <div class="swatch-color" style="background: ${color};"></div>
+                    <span>${color}</span>
+                </div>
+            `).join("");
+        }
+
+        function renderResult() {
+            result.querySelector(".phrase-card").innerHTML = `
+                <h3>${escapeHTML(activePhrase.word)}</h3>
+                <p><strong>Meaning:</strong> ${escapeHTML(activePhrase.meaning)}. ${escapeHTML(activePhrase.concept)}</p>
+            `;
+            renderSummary();
+            renderPalette();
+            updatePreview();
+        }
+
+        function generateConcept() {
+            activePhrase = getPhrase();
+            activePalette = getRandom(palettes);
+            renderResult();
+        }
+
+        function surpriseMe() {
+            form.product.value = getRandom(["shirt", "hoodie", "hat", "sticker"]);
+            updateSizes();
+            form.baseColor.value = getRandom(["#F4F0E6", "#FEAA47", "#B4490D", "#227376", "#034B52", "#083A08", "#A5BF99", "#347338", "#134023", "#11261A", "#070D0B"]);
+            form.inkColor.value = getRandom(["#134023", "#FEAA47", "#B4490D", "#227376", "#034B52", "#083A08", "#A5BF99", "#F4F0E6", "#FFFFFF", "#070D0B"]);
+            form.placement.value = getRandom(["placement-left-chest", "placement-center", "placement-back", "placement-sleeve"]);
+            form.theme.value = getRandom(["family", "home", "strength", "nature", "service"]);
+            form.artStyle.value = getRandom(["Hand-drawn line art", "Minimal embroidery", "Nature frame", "Bold back graphic", "Sticker badge"]);
+            form.customText.value = "";
+            generateConcept();
+        }
+
+        function resetApp() {
+            form.product.value = "shirt";
+            updateSizes();
+            form.size.value = "M";
+            form.baseColor.value = "#F4F0E6";
+            form.inkColor.value = "#134023";
+            form.placement.value = "placement-center";
+            form.theme.value = "home";
+            form.artStyle.value = "Hand-drawn line art";
+            form.customText.value = "";
+            activePhrase = phrases.find((phrase) => phrase.word === "Tahanan");
+            activePalette = palettes[0];
+            renderResult();
+        }
+
+        document.getElementById("generateBtn").addEventListener("click", generateConcept);
+        document.getElementById("surpriseBtn").addEventListener("click", surpriseMe);
+        document.getElementById("resetBtn").addEventListener("click", resetApp);
+
+        Object.values(form).forEach((input) => {
+            input.addEventListener("change", () => {
+                if (input === form.product) {
+                    updateSizes();
+                }
+                if (input === form.theme || input === form.customText) {
+                    activePhrase = getPhrase();
+                }
+                updatePreview();
+                renderSummary();
+            });
+        });
+
+        form.customText.addEventListener("input", () => {
+            window.clearTimeout(customTextTimer);
+            customTextTimer = window.setTimeout(() => {
+                activePhrase = getPhrase();
+                renderResult();
+            }, 120);
+        });
+
+        renderResult();
+    </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 96" role="img" aria-labelledby="title desc">
+  <title id="title">Ibong Apparel Logo Option 3</title>
+  <desc id="desc">A refined wordmark for Ibong Apparel with an angular shelter-inspired symbol.</desc>
+  <rect width="430" height="96" fill="none"/>
+  <path d="M6 68 H300" fill="none" stroke="#B4490D" stroke-width="3" stroke-linecap="round"/>
+  <text x="4" y="59" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="45" font-weight="700" letter-spacing="0.5">Ibong</text>
+  <text x="150" y="59" fill="#A5BF99" font-family="Montserrat, Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="4">APPAREL</text>
+  <g transform="translate(314 12)">
+    <path d="M2 58 L58 6 L114 58" fill="none" stroke="#F4F0E6" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M33 59 L58 33 L88 59" fill="none" stroke="#F4F0E6" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M33 59 H61" fill="none" stroke="#F4F0E6" stroke-width="7" stroke-linecap="round"/>
+  </g>
+</svg>

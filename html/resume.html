@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chase Goodrich - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #6366f1;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #6366f1;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info {
+            font-size: 0.95rem;
+            color: #888;
+        }
+
+        .contact-info span {
+            display: inline-block;
+            margin: 0 0.5rem;
+        }
+
+        .contact-info a {
+            color: #6366f1;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #6366f1;
+            text-transform: uppercase;
+            border-bottom: 2px solid #ec4899;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .entry {
+            margin-bottom: 1.5rem;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+        }
+
+        .entry-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .entry-subtitle {
+            font-size: 0.95rem;
+            color: #ec4899;
+            font-style: italic;
+        }
+
+        .entry-date {
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        .entry-description {
+            color: #555;
+            margin-left: 1rem;
+        }
+
+        .entry-description li {
+            margin-left: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: #f8f9ff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #6366f1;
+        }
+
+        .skill-category h3 {
+            color: #6366f1;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .skill-category p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #ddd;
+        }
+
+        .back-link a {
+            color: #6366f1;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .entry-header {
+                flex-direction: column;
+            }
+
+            .entry-date {
+                margin-top: 0.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Chase S. Goodrich</h1>
+            <p>Global Supply Chain Management Student</p>
+            <div class="contact-info">
+                <span>(801) 833-5729</span>
+                <span><a href="mailto:chasegoody44@gmail.com">chasegoody44@gmail.com</a></span>
+                <span><a href="https://www.linkedin.com/in/chasegoodrich">linkedin.com/in/chasegoodrich</a></span>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="entry">
+                <div class="entry-header">
+                    <div>
+                        <div class="entry-title">Brigham Young University</div>
+                        <div class="entry-subtitle">Bachelor of Science in Global Supply Chain Management</div>
+                    </div>
+                    <div class="entry-date">Expected Dec 2029</div>
+                </div>
+                <div class="entry-description">
+                    <p>Undergraduate student in Provo, Utah. Cumulative HR ERN 37.00 GPA: 3.76.</p>
+                    <ul>
+                        <li>Completed courses: MSB 180, ECON 110, CHEM 105, WRTG 150, REL A 121, STDEV 272, UNIV 101, REL C 200, TAGAL: 101, 102, 201, 202, 330, IS 201</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="section">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Critical Thinking</h3>
+                    <p>Works through problems carefully and finds practical solutions.</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Instruction &amp; Coaching</h3>
+                    <p>Keeps learners engaged and guides them in developing new skills.</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Tagalog Fluency</h3>
+                    <p>Speaks, reads, writes, and interprets Tagalog.</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Leadership</h3>
+                    <p>Supports, organizes, lifts, and inspires groups to improve.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="section">
+            <h2 class="section-title">Experience</h2>
+            <div class="entry">
+                <div class="entry-header">
+                    <div>
+                        <div class="entry-title">Language Instructor</div>
+                        <div class="entry-subtitle">The Church of Jesus Christ of Latter-day Saints</div>
+                    </div>
+                    <div class="entry-date">Aug 2025 - Present</div>
+                </div>
+                <div class="entry-description">
+                    <ul>
+                        <li>Supported more than 60 young adults ages 18-22 as they prepared to live in a foreign country for 18 months to 2 years.</li>
+                        <li>Organized specific learning objectives and activities according to the needs of class participants.</li>
+                        <li>Orchestrated intermediate language learning through real-world application.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <div>
+                        <div class="entry-title">Volunteer Representative</div>
+                        <div class="entry-subtitle">The Church of Jesus Christ of Latter-day Saints - Quezon City, Philippines</div>
+                    </div>
+                    <div class="entry-date">Jul 2023 - Jul 2025</div>
+                </div>
+                <div class="entry-description">
+                    <ul>
+                        <li>Improved community engagement through daily contact and coordination with church leaders and members in Tagalog.</li>
+                        <li>Used project management methods to set goals, intermediate milestones, and one-on-one follow-up for results.</li>
+                        <li>Organized meetings and provided monthly training for 170 members to improve culture and teaching skills.</li>
+                        <li>Studied and applied Tagalog daily to communicate, teach, inspire, and support others.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <div>
+                        <div class="entry-title">Emergency Medical Technician</div>
+                        <div class="entry-subtitle">National Registry Emergency Medical Technician - Riverton, UT</div>
+                    </div>
+                    <div class="entry-date">May 2023 - Mar 2025</div>
+                </div>
+                <div class="entry-description">
+                    <ul>
+                        <li>Registered as an Emergency Medical Technician through the national EMS certification.</li>
+                        <li>Learned lifesaving medical maneuvers through 9 months of study and scenario practice.</li>
+                        <li>Earned CPR certification and national certification in airway, breathing, and circulation control techniques.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <div>
+                        <div class="entry-title">Arbor and Planting Specialist</div>
+                        <div class="entry-subtitle">Arbor Day Nursery - Riverton, UT</div>
+                    </div>
+                    <div class="entry-date">May 2020 - Jun 2023</div>
+                </div>
+                <div class="entry-description">
+                    <ul>
+                        <li>Led landscaping crews and landscape installation projects for dozens of homeowners.</li>
+                        <li>Communicated with buyers about their investments in plants, trees, and fertilizers.</li>
+                        <li>Operated tractors and 10-ton dump trucks in loading and delivery operations.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Personal -->
+        <div class="section">
+            <h2 class="section-title">Personal</h2>
+            <div class="entry">
+                <div class="entry-description">
+                    <ul>
+                        <li>Enjoy team sports.</li>
+                        <li>Creative outlets include drawing and guitar interpretations.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back Link -->
+        <div class="back-link">
+            <a href="../index.html">&larr; Back to Ibong</a>
+        </div>
+    </div>
+</body>
+</html>

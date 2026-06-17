@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" role="img" aria-labelledby="title desc">
+  <title id="title">Ibong Apparel</title>
+  <desc id="desc">A text logo for Ibong Apparel.</desc>
+  <rect width="360" height="80" fill="none"/>
+  <text x="0" y="48" fill="#A5BF99" font-family="Montserrat, Arial, sans-serif" font-size="42" font-weight="700" letter-spacing="1.5">Ibong</text>
+  <text x="158" y="48" fill="#ffffff" font-family="Montserrat, Arial, sans-serif" font-size="34" font-weight="500" letter-spacing="1">Apparel</text>
+  <line x1="2" y1="62" x2="331" y2="62" stroke="#347338" stroke-width="4" stroke-linecap="round"/>
+</svg>
